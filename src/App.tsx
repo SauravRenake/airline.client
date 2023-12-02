@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import axios, { AxiosResponse } from 'axios';
+import { urlWeather } from './api/endpoints';
 
 function App() {
+
+  useEffect(() => {
+    axios.get(urlWeather)
+    .then((response: AxiosResponse<any>) =>{
+      console.log(response.data);
+    })
+  },[])
+  
   return (
     <div className="App">
       <header className="App-header">
